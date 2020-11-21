@@ -1,0 +1,38 @@
+library ieee;
+
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity alu is
+	port
+	(
+	);
+end alu;
+
+architecture behavior of alu is
+begin
+	process(A, B, AluOp)
+	begin
+		switch (AluOp)
+			case "000":
+				output <= (A + B);
+				break;
+			case "001":
+				output <= (A - B);
+				break;
+			case "010":
+				output <= (A and B);
+				break;
+			case "011":
+				output <= (A or B);
+				break;
+			case "100":
+				output <= B;
+				break;
+			case "101":
+				output <= A;
+				break;
+		end switch;
+	end process;
+end behavior;
