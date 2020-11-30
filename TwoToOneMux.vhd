@@ -1,6 +1,6 @@
 library ieee;
 
-use ieee.std_logic_1164.all
+use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
@@ -21,7 +21,7 @@ begin
 		if (address = '0') then
 			output <= A;
 		elsif (address = '1') then
-			otuput <= B;
-		end if
+			output <= B;
+		end if;
 	end process;
 end behavior;

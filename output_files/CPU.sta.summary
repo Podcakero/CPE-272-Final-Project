@@ -1,0 +1,77 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'clk'
+Slack : -2.678
+TNS   : -84.982
+
+Type  : Slow 1200mV 85C Model Setup 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : -2.164
+TNS   : -8.057
+
+Type  : Slow 1200mV 85C Model Hold 'clk'
+Slack : 0.333
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.971
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -99.807
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.385
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'clk'
+Slack : -2.362
+TNS   : -72.943
+
+Type  : Slow 1200mV 0C Model Setup 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : -1.924
+TNS   : -7.019
+
+Type  : Slow 1200mV 0C Model Hold 'clk'
+Slack : 0.306
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.896
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -99.807
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.454
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'clk'
+Slack : -0.556
+TNS   : -6.666
+
+Type  : Fast 1200mV 0C Model Setup 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : -0.435
+TNS   : -0.877
+
+Type  : Fast 1200mV 0C Model Hold 'clk'
+Slack : 0.071
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.391
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk'
+Slack : -3.000
+TNS   : -74.074
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ControlUnit:CU|current_state.staa_write_mem'
+Slack : 0.335
+TNS   : 0.000
+
+------------------------------------------------------------

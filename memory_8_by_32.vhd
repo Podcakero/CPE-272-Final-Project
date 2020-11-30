@@ -15,7 +15,7 @@ entity memory_8_by_32 is
 	);
 end memory_8_by_32;
 
-architecture behavor of memory_8_by_32 is
+architecture behavior of memory_8_by_32 is
 	type ram_type is array(0 to 31) of std_logic_vector(7 downto 0);
 	
 	signal Z: ram_type := ("00000101", "00100110", "01000111", "00000111", 

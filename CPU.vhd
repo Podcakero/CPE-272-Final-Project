@@ -25,7 +25,7 @@ component memory_8_by_32
 		Write_Enable: in std_logic;
 		Read_Addr: in std_logic_vector(4 downto 0);
 		Data_in: in std_logic_vector(7 downto 0);
-		Date_out: out std_logic_vector(7 downto 0)
+		Data_out: out std_logic_vector(7 downto 0)
 	);
 end component;
 
@@ -83,7 +83,7 @@ component ControlUnit
 		clk: in std_logic;
 		ToALoad: out std_logic;
 		ToMarLoad: out std_logic;
-		ToIrLod: out std_logic;
+		ToIrLoad: out std_logic;
 		ToMdriLoad: out std_Logic;
 		ToMdroLoad: out std_logic;
 		ToPcIncrement: out std_logic;
@@ -119,26 +119,34 @@ signal cuToRamWriteEnable: std_logic;
 signal cuToAluOp: std_logic_vector(2 downto 0);
 
 begin
-	memory = memory_8_by_32 port map ();
+	memory: memory_8_by_32 port map (clk, cuToRamWriteEnable, marToRamReadAddr, mdroToRamDataIn, ramDataOutToMdri);
 	
-	-- Accumulator
+	accumulator: reg port map (aluOut, aToAluB, clk, cuToALoad);
 	
-	ALU: alu port map ();
+	ArithmeticLogicUnit: alu port map (mdriOut, aToAluB, cuToAluOp, aluOut);
 	
-	PC: ProgramCounter port map ();
+	PC: ProgramCounter port map (cuToPcIncrement, clk, pcToMarMux);
 	
-	instruction: reg port map ();
+	instruction: reg port map (mdriOut, irOut, clk, cuToIrLoad);
 	
-	MARmux: TwoToOneMux port map ();
+	MARmux: TwoToOneMux port map (irOut, pcToMarMux, cuToMarMux, muxToMar);
 	
-	MemoryAccess: reg port map ();
+	MemoryAccess: reg port map (input => muxToMar, output(4 downto 0) => marToRamReadAddr, clk => clk, load => cuToMarLoad);
 	
-	MemoryDataInput: reg port map ();
+	MemoryDataInput: reg port map (ramDataOutToMdri, mdriOut, clk, cuToMdriLoad);
 	
-	MemoryDataOuput: reg port map ();
+	MemoryDataOuput: reg port map (aluOut, mdroToRamDataIn, clk, cuToMdroLoad);
 	
-	CU: ControlUnit port map ();
+	CU: ControlUnit port map (irOut(7 downto 5), clk, cuToALoad, cuToMarLoad, cuToIrLoad, cuToMdriLoad, cuToMdroLoad, cuToPcIncrement, cuToMarMux, cuToRamWriteEnable, cuToAluOp);
 	
-	sevenseg: sevenseg port map ();
+	--sevenseg: sevenseg port map ( , );
 	
-	--pcOut <= pcToMarMux;
+	pcOut <= pcToMarMux;
+	marOut <= marToRamReadAddr & "000";
+	irOutput <= irOut;
+	mdriOutput <= mdriOut;
+	mdroOutput <=  mdroToRamDataIn;
+	aOut <=  aToAluB;
+	incrementOUt <= cuToPcIncrement;
+	
+end behavior;
