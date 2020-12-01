@@ -1,7 +1,7 @@
 # do CPU.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:35:03 on Nov 30,2020
+# Start time: 20:04:33 on Nov 30,2020
 # vcom -work work CPU.vho 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
@@ -16,20 +16,20 @@
 # -- Loading package altera_primitives_components
 # -- Compiling entity CPU
 # -- Compiling architecture structure of CPU
-# End time: 15:35:03 on Nov 30,2020, Elapsed time: 0:00:00
+# End time: 20:04:34 on Nov 30,2020, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 15:35:03 on Nov 30,2020
-# vcom -work work Waveform1.vwf.vht 
+# Start time: 20:04:34 on Nov 30,2020
+# vcom -work work Waveform4.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
 # -- Compiling entity CPU_vhd_vec_tst
 # -- Compiling architecture CPU_arch of CPU_vhd_vec_tst
-# End time: 15:35:03 on Nov 30,2020, Elapsed time: 0:00:00
+# End time: 20:04:34 on Nov 30,2020, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -novopt -c -t 1ps -L fiftyfivenm -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.CPU_vhd_vec_tst 
-# Start time: 15:35:03 on Nov 30,2020
+# Start time: 20:04:34 on Nov 30,2020
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
@@ -50,8 +50,8 @@
 # Loading altera.dffeas(vital_dffeas)
 # Loading fiftyfivenm.fiftyfivenm_unvm(behavior)
 # Loading fiftyfivenm.fiftyfivenm_adcblock(behavior)
-# ** Warning: Design size of 24091 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
+# ** Warning: Design size of 101504 statements exceeds ModelSim-Intel FPGA Starter Edition recommended capacity.
 # Expect performance to be adversely affected.
 # after#35
-# End time: 15:35:04 on Nov 30,2020, Elapsed time: 0:00:01
+# End time: 20:04:36 on Nov 30,2020, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1

@@ -102,7 +102,7 @@ begin
 			when load_mar =>
 				ToALoad <= '0';
 				ToPcIncrement <= '0';
-				ToMarMux <= '1';
+				ToMarMux <= '0';
 				ToMarLoad <= '1';
 				ToRamWriteEnable <= '0';
 				ToMdriLoad <= '0';
@@ -152,7 +152,7 @@ begin
 			when ldaa_load_mar =>
 				ToALoad <= '0';
 				ToPcIncrement <= '0';
-				ToMarMux <= '0';
+				ToMarMux <= '1';
 				ToMarLoad <= '1';
 				ToRamWriteEnable <= '0';
 				ToMdriLoad <= '0';
@@ -192,7 +192,7 @@ begin
 			when adaa_load_mar =>
 				ToALoad <= '0';
 				ToPcIncrement <= '0';
-				ToMarMux <= '0';
+				ToMarMux <= '1';
 				ToMarLoad <= '1';
 				ToRamWriteEnable <= '0';
 				ToMdriLoad <= '0';
@@ -232,8 +232,8 @@ begin
 			when staa_load_mdro =>
 				ToALoad <= '0';
 				ToPcIncrement <= '0';
-				ToMarMux <= '0';
-				ToMarLoad <= '0';
+				ToMarMux <= '1';
+				ToMarLoad <= '1';
 				ToRamWriteEnable <= '0';
 				ToMdriLoad <= '0';
 				ToIrLoad <= '0';
@@ -244,7 +244,7 @@ begin
 				ToPcIncrement <= '0';
 				ToMarMux <= '0';
 				ToMarLoad <= '0';
-				ToRamWriteEnable <= '0';
+				ToRamWriteEnable <= '1';
 				ToMdriLoad <= '0';
 				ToIrLoad <= '0';
 				ToMdroLoad <= '0';

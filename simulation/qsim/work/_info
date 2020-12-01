@@ -9,7 +9,7 @@ z2
 cModel Technology
 Z0 dC:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/simulation/qsim
 Ecpu
-Z1 w1606768501
+Z1 w1606784672
 Z2 DPx11 fiftyfivenm 21 fiftyfivenm_atom_pack 0 22 hIbO9BBYYWGW_8lVV<F893
 Z3 DPx11 fiftyfivenm 22 fiftyfivenm_components 0 22 [A0e0UP4j3EDHZ:h0KOS^3
 Z4 DPx4 ieee 16 vital_primitives 0 22 G>kiXP8Q9dRClKfK1Zn7j1
@@ -23,13 +23,13 @@ Z10 8CPU.vho
 Z11 FCPU.vho
 l0
 L91
-VTz2iJzKZeL]_hJ^zWLQ1T3
-!s100 MEPZD6`EVLN:amnGHb[na0
+V7c0]108=@BSmOEH=CCG:51
+!s100 _G;EIh=;k^CZgk[[_GC=R3
 Z12 OV;C;10.5b;63
 32
-Z13 !s110 1606768503
+Z13 !s110 1606784673
 !i10b 1
-Z14 !s108 1606768503.000000
+Z14 !s108 1606784673.000000
 Z15 !s90 -work|work|CPU.vho|
 Z16 !s107 CPU.vho|
 !i113 1
@@ -44,11 +44,11 @@ R6
 R7
 R8
 R9
-DEx4 work 3 cpu 0 22 Tz2iJzKZeL]_hJ^zWLQ1T3
-l365
-L157
-VV;Mg_;3Pj7iT>m=bFSeoW3
-!s100 8J<6zE6ehB5gRajDi^PVC3
+DEx4 work 3 cpu 0 22 7c0]108=@BSmOEH=CCG:51
+l970
+L159
+VFn@TJdJX;3J0O5K1dHLg:1
+!s100 OKDa^:@Nm>96b9;eIn?FM3
 R12
 32
 R13
@@ -60,41 +60,41 @@ R16
 R17
 R18
 Ecpu_vhd_vec_tst
-Z19 w1606768500
+Z19 w1606784669
 R7
 R8
 R0
-Z20 8Waveform1.vwf.vht
-Z21 FWaveform1.vwf.vht
+Z20 8Waveform4.vwf.vht
+Z21 FWaveform4.vwf.vht
 l0
 L32
 VWH5;nYiB6@7gZK<F=?2KH2
 !s100 MT_2[ECbSh>ONUcARUP8c0
 R12
 32
-R13
+Z22 !s110 1606784674
 !i10b 1
-R14
-Z22 !s90 -work|work|Waveform1.vwf.vht|
-Z23 !s107 Waveform1.vwf.vht|
+Z23 !s108 1606784674.000000
+Z24 !s90 -work|work|Waveform4.vwf.vht|
+Z25 !s107 Waveform4.vwf.vht|
 !i113 1
 R17
 R18
 Acpu_arch
 R7
 R8
-Z24 DEx4 work 15 cpu_vhd_vec_tst 0 22 WH5;nYiB6@7gZK<F=?2KH2
-l57
+Z26 DEx4 work 15 cpu_vhd_vec_tst 0 22 WH5;nYiB6@7gZK<F=?2KH2
+l59
 L34
-Z25 Vi148;^`8A5`ZFJ?U<Y_4W1
-Z26 !s100 >PdXbk<X]26zYaNZNImF?1
+VQHi0f^DA3=Ga3M7[WPfKA1
+!s100 Q^JZ[c=a16E_bnSf2f0[?1
 R12
 32
-R13
-!i10b 1
-R14
 R22
+!i10b 1
 R23
+R24
+R25
 !i113 1
 R17
 R18

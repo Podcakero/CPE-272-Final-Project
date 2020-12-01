@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CPU
-Mon Nov 30 15:30:27 2020
+Mon Nov 30 20:03:26 2020
 Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
 
 
@@ -14,14 +14,13 @@ Quartus Prime Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |CPU|ControlUnit:CU|current_state
-  9. User-Specified and Inferred Latches
- 10. Registers Removed During Synthesis
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Port Connectivity Checks: "reg:MemoryAccess"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Port Connectivity Checks: "reg:MemoryAccess"
+ 13. Post-Synthesis Netlist Statistics for Top Partition
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -48,16 +47,16 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Nov 30 15:30:27 2020       ;
+; Analysis & Synthesis Status        ; Successful - Mon Nov 30 20:03:25 2020       ;
 ; Quartus Prime Version              ; 19.1.0 Build 670 09/22/2019 SJ Lite Edition ;
 ; Revision Name                      ; CPU                                         ;
 ; Top-level Entity Name              ; CPU                                         ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 93                                          ;
-;     Total combinational functions  ; 60                                          ;
-;     Dedicated logic registers      ; 69                                          ;
-; Total registers                    ; 69                                          ;
-; Total pins                         ; 50                                          ;
+; Total logic elements               ; 538                                         ;
+;     Total combinational functions  ; 351                                         ;
+;     Dedicated logic registers      ; 325                                         ;
+; Total registers                    ; 325                                         ;
+; Total pins                         ; 51                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -166,8 +165,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
-;     Processors 3-4         ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -191,50 +189,49 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 93        ;
+; Estimated Total logic elements              ; 538       ;
 ;                                             ;           ;
-; Total combinational functions               ; 60        ;
+; Total combinational functions               ; 351       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 15        ;
-;     -- 3 input functions                    ; 32        ;
-;     -- <=2 input functions                  ; 13        ;
+;     -- 4 input functions                    ; 181       ;
+;     -- 3 input functions                    ; 56        ;
+;     -- <=2 input functions                  ; 114       ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 47        ;
+;     -- normal mode                          ; 338       ;
 ;     -- arithmetic mode                      ; 13        ;
 ;                                             ;           ;
-; Total registers                             ; 69        ;
-;     -- Dedicated logic registers            ; 69        ;
+; Total registers                             ; 325       ;
+;     -- Dedicated logic registers            ; 325       ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 50        ;
+; I/O pins                                    ; 51        ;
 ;                                             ;           ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 69        ;
-; Total fan-out                               ; 458       ;
-; Average fan-out                             ; 2.00      ;
+; Maximum fan-out                             ; 325       ;
+; Total fan-out                               ; 2087      ;
+; Average fan-out                             ; 2.68      ;
 +---------------------------------------------+-----------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                              ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------+----------------+--------------+
-; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name          ; Entity Name    ; Library Name ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------+----------------+--------------+
-; |CPU                         ; 60 (0)              ; 69 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 50   ; 0            ; 0          ; |CPU                         ; CPU            ; work         ;
-;    |ControlUnit:CU|          ; 16 (16)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|ControlUnit:CU          ; ControlUnit    ; work         ;
-;    |ProgramCounter:PC|       ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|ProgramCounter:PC       ; ProgramCounter ; work         ;
-;    |TwoToOneMux:MARmux|      ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|TwoToOneMux:MARmux      ; TwoToOneMux    ; work         ;
-;    |alu:ArithmeticLogicUnit| ; 16 (16)             ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|alu:ArithmeticLogicUnit ; alu            ; work         ;
-;    |memory_8_by_32:memory|   ; 15 (15)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|memory_8_by_32:memory   ; memory_8_by_32 ; work         ;
-;    |reg:MemoryAccess|        ; 0 (0)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryAccess        ; reg            ; work         ;
-;    |reg:MemoryDataInput|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryDataInput     ; reg            ; work         ;
-;    |reg:MemoryDataOuput|     ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryDataOuput     ; reg            ; work         ;
-;    |reg:accumulator|         ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:accumulator         ; reg            ; work         ;
-;    |reg:instruction|         ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:instruction         ; reg            ; work         ;
-+------------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+------------------------------+----------------+--------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                          ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name        ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+----------------+--------------+
+; |CPU                       ; 351 (0)             ; 325 (0)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 51   ; 0            ; 0          ; |CPU                       ; CPU            ; work         ;
+;    |ControlUnit:CU|        ; 12 (12)             ; 16 (16)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|ControlUnit:CU        ; ControlUnit    ; work         ;
+;    |ProgramCounter:PC|     ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|ProgramCounter:PC     ; ProgramCounter ; work         ;
+;    |TwoToOneMux:MARmux|    ; 5 (5)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|TwoToOneMux:MARmux    ; TwoToOneMux    ; work         ;
+;    |memory_8_by_32:memory| ; 318 (318)           ; 264 (264)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|memory_8_by_32:memory ; memory_8_by_32 ; work         ;
+;    |reg:MemoryAccess|      ; 0 (0)               ; 5 (5)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryAccess      ; reg            ; work         ;
+;    |reg:MemoryDataInput|   ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryDataInput   ; reg            ; work         ;
+;    |reg:MemoryDataOuput|   ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:MemoryDataOuput   ; reg            ; work         ;
+;    |reg:accumulator|       ; 8 (8)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:accumulator       ; reg            ; work         ;
+;    |reg:instruction|       ; 0 (0)               ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |CPU|reg:instruction       ; reg            ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+----------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -263,21 +260,6 @@ Encoding Type:  One-Hot
 +---------------------------------+----------------------------+------------------------------+------------------------------+---------------------------------+------------------------------+-----------------------------+-----------------------------+---------------------------+------------------------------+-----------------------------+-----------------------------+----------------------+-----------------------+-------------------------+------------------------+------------------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------+
-; User-Specified and Inferred Latches                                                                                       ;
-+----------------------------------------------------+---------------------------------------------+------------------------+
-; Latch Name                                         ; Latch Enable Signal                         ; Free of Timing Hazards ;
-+----------------------------------------------------+---------------------------------------------+------------------------+
-; ControlUnit:CU|ToPcIncrement                       ; ControlUnit:CU|current_state.staa_write_mem ; yes                    ;
-; ControlUnit:CU|ToMarMux                            ; ControlUnit:CU|current_state.staa_write_mem ; yes                    ;
-; ControlUnit:CU|ToMarLoad                           ; ControlUnit:CU|current_state.staa_write_mem ; yes                    ;
-; ControlUnit:CU|ToIrLoad                            ; ControlUnit:CU|current_state.staa_write_mem ; yes                    ;
-; ControlUnit:CU|ToMdriLoad                          ; ControlUnit:CU|current_state.staa_write_mem ; yes                    ;
-; Number of user-specified and inferred latches = 5  ;                                             ;                        ;
-+----------------------------------------------------+---------------------------------------------+------------------------+
-Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
-
-
 +-------------------------------------------------------------+
 ; Registers Removed During Synthesis                          ;
 +----------------------------------------+--------------------+
@@ -293,12 +275,12 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 69    ;
-; Number of registers using Synchronous Clear  ; 1     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 325   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 8     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 44    ;
+; Number of registers using Clock Enable       ; 308   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -328,24 +310,24 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 50                          ;
-; cycloneiii_ff         ; 69                          ;
-;     ENA               ; 44                          ;
-;     SCLR              ; 1                           ;
-;     plain             ; 24                          ;
-; cycloneiii_lcell_comb ; 61                          ;
+; boundary_port         ; 51                          ;
+; cycloneiii_ff         ; 325                         ;
+;     ENA               ; 300                         ;
+;     ENA SLD           ; 8                           ;
+;     plain             ; 17                          ;
+; cycloneiii_lcell_comb ; 353                         ;
 ;     arith             ; 13                          ;
 ;         2 data inputs ; 5                           ;
 ;         3 data inputs ; 8                           ;
-;     normal            ; 48                          ;
+;     normal            ; 340                         ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 3                           ;
-;         2 data inputs ; 5                           ;
-;         3 data inputs ; 24                          ;
-;         4 data inputs ; 15                          ;
+;         1 data inputs ; 106                         ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 48                          ;
+;         4 data inputs ; 181                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 2.70                        ;
-; Average LUT depth     ; 1.51                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 3.12                        ;
 +-----------------------+-----------------------------+
 
 
@@ -354,7 +336,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:01     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -364,27 +346,27 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 19.1.0 Build 670 09/22/2019 SJ Lite Edition
-    Info: Processing started: Mon Nov 30 15:30:06 2020
+    Info: Processing started: Mon Nov 30 20:03:06 2020
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CPU -c CPU
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
-    Info (12022): Found design unit 1: CPU-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 19
+    Info (12022): Found design unit 1: CPU-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 20
     Info (12023): Found entity 1: CPU File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 5
 Info (12127): Elaborating entity "CPU" for the top level hierarchy
-Critical Warning (10920): VHDL Incomplete Partial Association warning at CPU.vhd(134): port or argument "output" has 3/8 unassociated elements File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 134
+Critical Warning (10920): VHDL Incomplete Partial Association warning at CPU.vhd(135): port or argument "output" has 3/8 unassociated elements File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 135
 Warning (12125): Using design file memory_8_by_32.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: memory_8_by_32-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/memory_8_by_32.vhd Line: 18
     Info (12023): Found entity 1: memory_8_by_32 File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/memory_8_by_32.vhd Line: 7
-Info (12128): Elaborating entity "memory_8_by_32" for hierarchy "memory_8_by_32:memory" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 122
+Info (12128): Elaborating entity "memory_8_by_32" for hierarchy "memory_8_by_32:memory" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 123
 Warning (12125): Using design file reg.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: reg-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/reg.vhd Line: 17
     Info (12023): Found entity 1: reg File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/reg.vhd Line: 7
-Info (12128): Elaborating entity "reg" for hierarchy "reg:accumulator" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 124
+Info (12128): Elaborating entity "reg" for hierarchy "reg:accumulator" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 125
 Warning (12125): Using design file alu.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: alu-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 17
     Info (12023): Found entity 1: alu File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 7
-Info (12128): Elaborating entity "alu" for hierarchy "alu:ArithmeticLogicUnit" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 126
+Info (12128): Elaborating entity "alu" for hierarchy "alu:ArithmeticLogicUnit" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 127
 Warning (10631): VHDL Process Statement warning at alu.vhd(19): inferring latch(es) for signal or variable "output", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
 Info (10041): Inferred latch for "output[0]" at alu.vhd(19) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
 Info (10041): Inferred latch for "output[1]" at alu.vhd(19) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
@@ -397,11 +379,11 @@ Info (10041): Inferred latch for "output[7]" at alu.vhd(19) File: C:/Users/busin
 Warning (12125): Using design file programcounter.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: ProgramCounter-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/programcounter.vhd Line: 16
     Info (12023): Found entity 1: ProgramCounter File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/programcounter.vhd Line: 7
-Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:PC" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 128
+Info (12128): Elaborating entity "ProgramCounter" for hierarchy "ProgramCounter:PC" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 129
 Warning (12125): Using design file twotoonemux.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: TwoToOneMux-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/twotoonemux.vhd Line: 17
     Info (12023): Found entity 1: TwoToOneMux File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/twotoonemux.vhd Line: 7
-Info (12128): Elaborating entity "TwoToOneMux" for hierarchy "TwoToOneMux:MARmux" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 132
+Info (12128): Elaborating entity "TwoToOneMux" for hierarchy "TwoToOneMux:MARmux" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 133
 Warning (10631): VHDL Process Statement warning at twotoonemux.vhd(19): inferring latch(es) for signal or variable "output", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/twotoonemux.vhd Line: 19
 Info (10041): Inferred latch for "output[0]" at twotoonemux.vhd(19) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/twotoonemux.vhd Line: 19
 Info (10041): Inferred latch for "output[1]" at twotoonemux.vhd(19) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/twotoonemux.vhd Line: 19
@@ -414,19 +396,7 @@ Info (10041): Inferred latch for "output[7]" at twotoonemux.vhd(19) File: C:/Use
 Warning (12125): Using design file controlunit.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
     Info (12022): Found design unit 1: COntrolUnit-behavior File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 24
     Info (12023): Found entity 1: ControlUnit File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 7
-Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:CU" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 140
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToPcIncrement", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToMarMux", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToMarLoad", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToRamWriteEnable", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToMdriLoad", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Warning (10631): VHDL Process Statement warning at controlunit.vhd(85): inferring latch(es) for signal or variable "ToIrLoad", which holds its previous value in one or more paths through the process File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToIrLoad" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToMdriLoad" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToRamWriteEnable" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToMarLoad" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToMarMux" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
-Info (10041): Inferred latch for "ToPcIncrement" at controlunit.vhd(85) File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/controlunit.vhd Line: 85
+Info (12128): Elaborating entity "ControlUnit" for hierarchy "ControlUnit:CU" File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 141
 Warning (14026): LATCH primitive "alu:ArithmeticLogicUnit|output[0]" is permanently enabled File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
 Warning (14026): LATCH primitive "alu:ArithmeticLogicUnit|output[1]" is permanently enabled File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
 Warning (14026): LATCH primitive "alu:ArithmeticLogicUnit|output[2]" is permanently enabled File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/alu.vhd Line: 19
@@ -446,21 +416,21 @@ Warning (14026): LATCH primitive "alu:ArithmeticLogicUnit|output[7]" is permanen
 Info (276014): Found 1 instances of uninferred RAM logic
     Info (276013): RAM logic "memory_8_by_32:memory|Z" is uninferred because MIF is not supported for the selected family File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/memory_8_by_32.vhd Line: 21
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "marOut[0]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
-    Warning (13410): Pin "marOut[1]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
-    Warning (13410): Pin "marOut[2]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
+    Warning (13410): Pin "marOut[5]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
+    Warning (13410): Pin "marOut[6]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
+    Warning (13410): Pin "marOut[7]" is stuck at GND File: C:/Users/busin/Desktop/College Classes/Fall 2020/CPE 272/Final_Project/CPU.vhd Line: 10
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 24 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 151 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 589 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 49 output pins
-    Info (21061): Implemented 101 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 36 warnings
-    Info: Peak virtual memory: 4810 megabytes
-    Info: Processing ended: Mon Nov 30 15:30:27 2020
-    Info: Elapsed time: 00:00:21
-    Info: Total CPU time (on all processors): 00:00:47
+    Info (21059): Implemented 50 output pins
+    Info (21061): Implemented 538 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 30 warnings
+    Info: Peak virtual memory: 4793 megabytes
+    Info: Processing ended: Mon Nov 30 20:03:26 2020
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:43
 
 

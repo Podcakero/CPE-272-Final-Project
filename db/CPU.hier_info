@@ -15,14 +15,14 @@ pcOut[4] << ProgramCounter:PC.output[4]
 pcOut[5] << ProgramCounter:PC.output[5]
 pcOut[6] << ProgramCounter:PC.output[6]
 pcOut[7] << ProgramCounter:PC.output[7]
-marOut[0] << <GND>
-marOut[1] << <GND>
-marOut[2] << <GND>
-marOut[3] << reg:MemoryAccess.output[0]
-marOut[4] << reg:MemoryAccess.output[1]
-marOut[5] << reg:MemoryAccess.output[2]
-marOut[6] << reg:MemoryAccess.output[3]
-marOut[7] << reg:MemoryAccess.output[4]
+marOut[0] << reg:MemoryAccess.output[0]
+marOut[1] << reg:MemoryAccess.output[1]
+marOut[2] << reg:MemoryAccess.output[2]
+marOut[3] << reg:MemoryAccess.output[3]
+marOut[4] << reg:MemoryAccess.output[4]
+marOut[5] << <GND>
+marOut[6] << <GND>
+marOut[7] << <GND>
 irOutput[0] << reg:instruction.output[0]
 irOutput[1] << reg:instruction.output[1]
 irOutput[2] << reg:instruction.output[2]
@@ -56,6 +56,7 @@ aOut[5] << reg:accumulator.output[5]
 aOut[6] << reg:accumulator.output[6]
 aOut[7] << reg:accumulator.output[7]
 incrementOut << ControlUnit:CU.ToPcIncrement
+test << ControlUnit:CU.ToMarMux
 
 
 |CPU|memory_8_by_32:memory
@@ -587,13 +588,13 @@ OpCode[2] => Mux14.IN3
 OpCode[2] => Mux15.IN3
 clk => current_state~1.DATAIN
 ToALoad <= ToALoad.DB_MAX_OUTPUT_PORT_TYPE
-ToMarLoad <= ToMarLoad$latch.DB_MAX_OUTPUT_PORT_TYPE
-ToIrLoad <= ToIrLoad$latch.DB_MAX_OUTPUT_PORT_TYPE
-ToMdriLoad <= ToMdriLoad$latch.DB_MAX_OUTPUT_PORT_TYPE
+ToMarLoad <= WideOr15.DB_MAX_OUTPUT_PORT_TYPE
+ToIrLoad <= ToIrLoad.DB_MAX_OUTPUT_PORT_TYPE
+ToMdriLoad <= WideOr16.DB_MAX_OUTPUT_PORT_TYPE
 ToMdroLoad <= ToMdroLoad.DB_MAX_OUTPUT_PORT_TYPE
-ToPcIncrement <= ToPcIncrement$latch.DB_MAX_OUTPUT_PORT_TYPE
-ToMarMux <= ToMarMux$latch.DB_MAX_OUTPUT_PORT_TYPE
-ToRamWriteEnable <= <GND>
+ToPcIncrement <= ToPcIncrement.DB_MAX_OUTPUT_PORT_TYPE
+ToMarMux <= WideOr14.DB_MAX_OUTPUT_PORT_TYPE
+ToRamWriteEnable <= ToRamWriteEnable.DB_MAX_OUTPUT_PORT_TYPE
 ToAluOp[0] <= ToAluOp[0].DB_MAX_OUTPUT_PORT_TYPE
 ToAluOp[1] <= <GND>
 ToAluOp[2] <= ToAluOp[2].DB_MAX_OUTPUT_PORT_TYPE

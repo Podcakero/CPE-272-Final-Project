@@ -12,7 +12,8 @@ entity CPU is
 		mdriOutput: out std_logic_vector(7 downto 0);
 		mdroOutput: out std_logic_vector(7 downto 0);
 		aOut: out std_logic_vector(7 downto 0);
-		incrementOut: out std_logic
+		incrementOut: out std_logic;
+		test: out std_logic
 	);
 end CPU;
 
@@ -129,24 +130,24 @@ begin
 	
 	instruction: reg port map (mdriOut, irOut, clk, cuToIrLoad);
 	
-	MARmux: TwoToOneMux port map (irOut, pcToMarMux, cuToMarMux, muxToMar);
+	MARmux: TwoToOneMux port map (pcToMarMux, irOut, cuToMarMux, muxToMar);
 	
 	MemoryAccess: reg port map (input => muxToMar, output(4 downto 0) => marToRamReadAddr, clk => clk, load => cuToMarLoad);
 	
 	MemoryDataInput: reg port map (ramDataOutToMdri, mdriOut, clk, cuToMdriLoad);
 	
-	MemoryDataOuput: reg port map (aluOut, mdroToRamDataIn, clk, cuToMdroLoad);
+	MemoryDataOuput: reg port map (aToAluB, mdroToRamDataIn, clk, cuToMdroLoad);
 	
 	CU: ControlUnit port map (irOut(7 downto 5), clk, cuToALoad, cuToMarLoad, cuToIrLoad, cuToMdriLoad, cuToMdroLoad, cuToPcIncrement, cuToMarMux, cuToRamWriteEnable, cuToAluOp);
 	
-	--sevenseg: sevenseg port map ( , );
 	
 	pcOut <= pcToMarMux;
-	marOut <= marToRamReadAddr & "000";
+	marOut <= "000" & marToRamReadAddr;
 	irOutput <= irOut;
 	mdriOutput <= mdriOut;
 	mdroOutput <=  mdroToRamDataIn;
 	aOut <=  aToAluB;
 	incrementOUt <= cuToPcIncrement;
+	test <= cuToMarMux;
 	
 end behavior;
